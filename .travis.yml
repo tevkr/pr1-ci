@@ -1,9 +1,14 @@
+language: java
+jdk: openjdk21
 sudo: false
 install: true
+dist: trusty
 
 addons:
   sonarcloud:
     organization: "tevkr"
+    token:
+      secure: "a/07sWM6iSv5u+1Kjzu3W8OcLrTp/JEgeFFm8TORor7YFZKfr6cX85nES/KrnkkLYZkJCem0l55EfyMo0cxPg0kHeHCdzf3uKAlZXjzMmACJ6MitA2YUDgtLN4K+17UjAQeu2BlnB9Wv0LDH58x2qPUzp54YPk2BDW7Fq0cMZsqlg2d074Y27guUTGN0plk+K+lwjpGe5G9OloGTd5CDscxjWO0RegIvfYaXzawoLoBZA6lQGYqtSlI2go2mop7uxlz+Mgolf5aANqITcoCVCcjLKG8if/bFrLYNNV5hVy86MjkrnIp261MislzlJMwo+STLPyJwgs+tAOukPUiJ6JMDerO/RnNKEHyJP48w/c4tZsBpuntVaJZIyKDpJmY65viaEhkZ9Qc/VKwryWytviBE1D3asEghcrgwySX+Uplb+PZK6ltgxUxiWpnwI1+T6R3jP6G0VNaw3FzGi7gnjpPwf6IvhUeL2Tugy8dPAOCh9wnTvuDdAziTjQymhOpvGnOpJ9yVpRX78HjUwqMUPls3gKbnxuBsg96EiK0NW02WAP+2OouGNScSBX9Ezz4IgL/HjTSUCIzRnYz4EsuYq3xw1DPQsnufntF1/HimgoqkfNysf7ZZ0yd398iQ+/qvkDhE8qcFe2Sl8XX42O3VgdJiORvixJq6Mjksf87EO88="
 
 script:
   # JaCoCo is used to have code coverage, "-Pcoverage" activates the maven profile in the pom.xml
