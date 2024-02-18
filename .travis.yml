@@ -1,5 +1,4 @@
 language: java
-jdk: openjdk21
 sudo: false
 install: true
 dist: trusty
