@@ -1,11 +1,15 @@
-language: java
+sudo: false
+install: true
 
 addons:
   sonarcloud:
     organization: "tevkr"
-    token:
-      secure: "vOBja/7WMJEyQUO8rBZZAM/iqfgQpCArNvvyern2AjmkZksS844e4uoj0aEI04vm6JNO5j1oFi8HtM41dQDLuBHZW/U3epfJZhhdKszmhHpw+Q/6RAhqzBTsIqs4TgYHyPv9QL/Mr9mPS3inipXO+NP8IaQS1xxZ1KehO6AuwmEMK70VLKbMbRE5BKR/+qiVmyL6a+RiyS+NFOzJcCShz7Vn2urTHfgMAnWqjfI/j8OMcTG6jRLjWFMk4qkrQXnwye0Ixmi2LIeE8J0H/aYb6Ji12MZN37wMxRxJ/7Ho24jNr/mI9SogYabCEtt/+KcZ3I/pPrjFGMClbXbzpVQmG0ZCFTy9uiPtmxtVSf8FPVD47IIC4DCD0cjt62ELpDTLxbt38dZ7UVuRdFb5jft5VCFlalWmBLQYLeDiKIcSFmWTiJCiekiUCgqIzhsACE7Cccobhi5eYZQX6rCApTyZ1AUDXRtedGla/uzeydPj/0clrAy/7X0iGl1U5dfpD71CKRn7hxAIIfjucns7xNJo6sngvsC7CUtG/vB8PSHQKFUJajJVHYXH3zp5Jmyf9kGTnLOp/jCTy2gSpUoINEaYbeY6syKDSGb3trlnmPfaQLk0LlxvaZNct7jo/2ljSt9YJqvTPqOqQX3KmPwEsk5XjDBfoqv2j6J+wSMWTDQ++lo=" # encrypted value of your token
 
 script:
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+  # JaCoCo is used to have code coverage, "-Pcoverage" activates the maven profile in the pom.xml
+  - mvn clean verify sonar:sonar -Pcoverage
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
