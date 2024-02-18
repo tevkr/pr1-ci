@@ -2,11 +2,7 @@ language: java
 sudo: false
 install: true
 dist: trusty
-addons:
-  sonarcloud:
-    organization: "tevkr"
-    token:
-      secure: "DwwyK4denG9eHzRAQsB93ECAhR3soxvxL/dzKatFqSgGuIpN6F32rWM5WoNeHg7EyZLhSaE+kgsyICLv3IuV464skyBqAjOLeKVn+a5DU2h6e3EGXKHFIFfI97v6pY57hmyHQJ1S4AOn2khxcYIuDAuyQoKW0BgdwH/F+Y6k3mqo46kCYy2wp33mnbArMMIUnYcrq0UUM9myjWoXMCqfzYTR/xQuZWdgf74TVUL8E5e7JhbS7J3QEdsQN+xF39iSduveh+Z8Ql9Oaq5Om8I6NYnVmZSGp/t3KWk3MKK8dvMuxh0ClK/Y9A72jmjZBxBALW6ePmWopITN7015whrbz8gzdGhB2YRDeHVW6fROQ7aht6z4QrAQiz/4nLJgNc4/c2U+Er6OXeAm7WvFKgPgHoGzo4XKN1daimn8/KTlPtRqAMoNtSTVUPcsXOck/+PwFXQ3ZbcIrljweluygcmEEhYEufILxA2gnSDHnt+UzqSrYawRD2T4r9LV/EZYDUF0zHwQs/sCmE2RbDyFrrXOJr0LgJxDdZLZ9aQeg5PCGbv4vNggjywIrOybCUGmQqkEpSgd1MZ+KZEaL4BoYmhxXiuNCYX9V8/3Z1gDxTmiToKNdSbsk4A0ET1OXbivtyv4WD6OiKcNN7PfD/25EXiprg4jfMgBDdtwIEwOoWX6CU0="
+
 script:
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package org.jacoco:jacoco-maven-plugin:report
 - if [ "$JAVA_HOME" = "/usr/local/lib/jvm/openjdk21" ]; then mvn sonar:sonar; fi
