@@ -2,13 +2,14 @@ language: java
 sudo: false
 install: true
 dist: trusty
-
 addons:
   sonarcloud:
-    organization: "tevkr"
+    organization: tevkr
     token:
-      secure: $SONAR_TOKEN
-
+      secure: "$SONAR_TOKEN"
 script:
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package org.jacoco:jacoco-maven-plugin:report
-  - if [ "$JAVA_HOME" = "/usr/local/lib/jvm/openjdk21" ]; then mvn sonar:sonar; fi
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package org.jacoco:jacoco-maven-plugin:report
+- if [ "$JAVA_HOME" = "/usr/local/lib/jvm/openjdk21" ]; then mvn sonar:sonar; fi
+env:
+  global:
+    secure: c94BQb3mAEDqLZHNgjNukyIN7W+gjk4Wp2se7D3EwxP4w0dT4cUYgddFWq974hMP3EEwAZOWJyG9uBqo0mVKgwSA7FQMy0O4Sk1TfBHsUe0kGUPLE5ynYAx6acw91RWjPZVlGLtpJS3mQp973AbRs2eH25miL0rEVoRD/j34lwVMNZtUnUloSJ+SmCo1oP0kIU/Cby2DwMlQfj4XIcPAAtILdYAsU3WkB6jyCesVKdDrafZstW211qItccXEWgCSSMPcpfAbmGCuJpdVo2Socsty514caXLWFccYv2YvxqhDYNkTIxPumobCbxbUPvPdpeimf3kHXGErAvx6K0Xsz8c2KS98K3wnaIAlgBwtDDVDFVr/Iac2oRWDRRbnoRllbZnLvHCyi2jPUpJh/NIiPyHFV9AT6p27SnAoCnibXIkwud8xAzYAd6ZvHbLPXV+QbPl/rauj2Ma1XZP1nQqut0oJTCUS1WbfT2LJc+NWEk0H3Flx7RJJLMN6gDNt4W6f0QQpx7NwWKPEEbAdl5YGRSTshSCMmN1Ir79WzJ7EuZC210Rs65uy1MxNCg12S0fhsF9aiX16RjlYfdnvqxW0weyuMLwTdK05C49Zge6leSq42r5EMHP4cayRmqdudiDyxSHP2dBM08OVNf/dOYvmW8UwS29upyK5yNaPrNAyHEg=
